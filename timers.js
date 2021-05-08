@@ -8,7 +8,10 @@ const incTime = () => {
 };
 
 console.log(`Delay set for: ${waitTime/1000} seconds`);
-const timerFinished = () => console.log("Time up!");
+const timerFinished = () => {
+    clearInterval(interval);
+    console.log("Time up!");
+};
 
-setInterval(incTime, waitInterval); // Calls the inTime function every .5 seconds.
+const interval = setInterval(incTime, waitInterval); // Calls the incTime function every .5 seconds.
 setTimeout(timerFinished, waitTime);
